@@ -55,7 +55,7 @@ const plotData = function (data1, data2, label = null) {
             }
         }
     };
-
+    console.log("render regist page  ="); 
     var ctx = document.getElementById('canvas').getContext('2d');
     window.myLine = new Chart(ctx, config);
 }    
