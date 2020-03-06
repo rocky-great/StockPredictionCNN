@@ -2,6 +2,7 @@
     Build Convolutional Neural Network using Tensorflow.js
 */
 const buildCnn = function (data) {
+    console.log("build cnn: ");
     return new Promise(function (resolve, reject) {
 
         // Linear (sequential) stack of layers
@@ -92,6 +93,8 @@ const cnn = function (model, data, epochs) {
 }
 
 let url = 'https://api.iextrading.com/1.0/stock/%company%/chart/1y'
+let url2 = 'https://jsonplaceholder.typicode.com/users';
+
 let epochs = 100;
 let timePortion = 7;
 
@@ -105,13 +108,186 @@ $(document).ready(function () {
         print("Beginning Stock Prediction ...");
         let company = $('#company').val().trim();
         
-        $.getJSON(url.replace('%company%', company).toLowerCase()).then(function (data) {
-            
+        //$.getJSON(url.replace('%company%', company).toLowerCase()).then(function (data) {
+            $.getJSON(url2.toLowerCase()).then(function (data) {
+            let data3 = [
+             
+                   {
+                      "date":"2018-02-20",
+                      "open":169.4694,
+                      "high":171.6463,
+                      "low":168.8489,
+                      "close":169.2724,
+                      "volume":33930540,
+                      "unadjustedVolume":33930540,
+                      "change":-0.5713,
+                      "changePercent":-0.336,
+                      "vwap":170.3546,
+                      "label":"Feb 20, 18",
+                      "changeOverTime":0
+                   },
+                   {
+                    "date":"2018-02-21",
+                    "open":179.4694,
+                    "high":171.6463,
+                    "low":168.8489,
+                    "close":179.2724,
+                    "volume":33930540,
+                    "unadjustedVolume":33930540,
+                    "change":-0.5713,
+                    "changePercent":-0.336,
+                    "vwap":170.3546,
+                    "label":"Feb 20, 21",
+                    "changeOverTime":0
+                 },
+                 {
+                    "date":"2018-02-22",
+                    "open":169.4694,
+                    "high":171.6463,
+                    "low":168.8489,
+                    "close":189.2724,
+                    "volume":33930540,
+                    "unadjustedVolume":33930540,
+                    "change":-0.5713,
+                    "changePercent":-0.336,
+                    "vwap":170.3546,
+                    "label":"Feb 20, 22",
+                    "changeOverTime":0
+                 },
+                 {
+                    "date":"2018-02-23",
+                    "open":169.4694,
+                    "high":171.6463,
+                    "low":168.8489,
+                    "close":159.2724,
+                    "volume":33930540,
+                    "unadjustedVolume":33930540,
+                    "change":-0.5713,
+                    "changePercent":-0.336,
+                    "vwap":170.3546,
+                    "label":"Feb 20, 23",
+                    "changeOverTime":0
+                 },
+                 {
+                    "date":"2018-02-24",
+                    "open":169.4694,
+                    "high":171.6463,
+                    "low":168.8489,
+                    "close":179.2724,
+                    "volume":33930540,
+                    "unadjustedVolume":33930540,
+                    "change":-0.5713,
+                    "changePercent":-0.336,
+                    "vwap":170.3546,
+                    "label":"Feb 20, 24",
+                    "changeOverTime":0
+                 },
+                 {
+                  "date":"2018-02-25",
+                  "open":169.4694,
+                  "high":171.6463,
+                  "low":168.8489,
+                  "close":149.2724,
+                  "volume":33930540,
+                  "unadjustedVolume":33930540,
+                  "change":-0.5713,
+                  "changePercent":-0.336,
+                  "vwap":170.3546,
+                  "label":"Feb 20, 25",
+                  "changeOverTime":0
+               },
+               {
+                  "date":"2018-02-26",
+                  "open":169.4694,
+                  "high":171.6463,
+                  "low":168.8489,
+                  "close":160.2724,
+                  "volume":33930540,
+                  "unadjustedVolume":33930540,
+                  "change":-0.5713,
+                  "changePercent":-0.336,
+                  "vwap":170.3546,
+                  "label":"Feb 20, 26",
+                  "changeOverTime":0
+               },
+               {
+                  "date":"2018-02-27",
+                  "open":169.4694,
+                  "high":171.6463,
+                  "low":168.8489,
+                  "close":169.2724,
+                  "volume":33930540,
+                  "unadjustedVolume":33930540,
+                  "change":-0.5713,
+                  "changePercent":-0.336,
+                  "vwap":170.3546,
+                  "label":"Feb 20, 28",
+                  "changeOverTime":0
+               },
+               {
+                "date":"2018-02-29",
+                "open":169.4694,
+                "high":171.6463,
+                "low":168.8489,
+                "close":149.2724,
+                "volume":33930540,
+                "unadjustedVolume":33930540,
+                "change":-0.5713,
+                "changePercent":-0.336,
+                "vwap":170.3546,
+                "label":"Feb 20, 29",
+                "changeOverTime":0
+             },
+             {
+              "date":"2018-03-01",
+              "open":169.4694,
+              "high":171.6463,
+              "low":168.8489,
+              "close":169.2724,
+              "volume":33930540,
+              "unadjustedVolume":33930540,
+              "change":-0.5713,
+              "changePercent":-0.336,
+              "vwap":170.3546,
+              "label":"Feb 02, 01",
+              "changeOverTime":0
+           },
+           {
+            "date":"2018-03-02",
+            "open":169.4694,
+            "high":171.6463,
+            "low":168.8489,
+            "close":169.2724,
+            "volume":33930540,
+            "unadjustedVolume":33930540,
+            "change":-0.5713,
+            "changePercent":-0.336,
+            "vwap":170.3546,
+            "label":"Feb 02, 02",
+            "changeOverTime":0
+         },
+          
+           {
+              "date":"2018-02-03",
+              "open":169.4694,
+              "high":171.6463,
+              "low":168.8489,
+              "close":189.2724,
+              "volume":33930540,
+              "unadjustedVolume":33930540,
+              "change":-0.5713,
+              "changePercent":-0.336,
+              "vwap":170.3546,
+              "label":"Feb 20, 03",
+              "changeOverTime":0
+           }
+              
+                ];
             // Get the datetime labels use in graph
-            let labels = data.map(function (val) { return val['date']; });
+            let labels = data3.map(function (val) { return val['date']; });
             
             // Process the data and create the train sets
-            processData(data, timePortion).then(function (result) {
+            processData(data3, timePortion).then(function (result) {
                 
                 // Crate the set for stock price prediction for the next day
                 let nextDayPrediction = generateNextDayPrediction(result.originalData, result.timePortion);
